@@ -7,22 +7,22 @@ import dal.ClienteDAO;
 import model.Cliente;
 import model.Login;
 import model.NivelDeAcesso;
-import view.CadClienteNew;
+import view.FrmCliente;
 import java.sql.SQLException;
 /**
  *
  * @author mylla
  */
 public class ControllerCadClientes {
-    private CadClienteNew view;
+    private FrmCliente view;
     
-     public void ControllerCadClientes(CadClienteNew view) {
+     public void ControllerCadClientes(FrmCliente view) {
          this.view = view;
      }
     public void cadastrarCliente() throws SQLException {
        Cliente cliente = new Cliente();
        cliente.setNome(view.getTxtNome().getText());
-       cliente.setCpf(view.getTxtCPF().getText());
+       cliente.setCpf(view.getTxtCpf().getText());
        cliente.setTelefone(view.getTxtTelefone().getText());
        cliente.setEndereco(view.getTxtEndereco().getText());
        
@@ -42,13 +42,13 @@ public class ControllerCadClientes {
         view.getTxtEndereco().setText("");
         view.getTxtTelefone().setText("");
         view.getTxtSenha().setText("");
-        view.getTxtCPF().setText("");
+        view.getTxtCpf().setText("");
     }
    public void consultaCliente() throws SQLException {        
-        String cpf = view.getTxtCPF().getText();
+        String cpf = view.getTxtCpf().getText();
     
     ClienteDAO clienteDao = new ClienteDAO();
-    Cliente cliente = clienteDao.recupera(Integer.parseInt(cpf));
+    Cliente cliente = clienteDao.recupera(cpf);
     
     if (cliente != null) {
         view.getTxtNome().setText(cliente.getNome());

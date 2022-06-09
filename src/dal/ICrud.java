@@ -12,7 +12,7 @@ public interface ICrud<T> {
     void adiciona(T t) throws SQLException;
         
     
-     T recupera(int id) throws SQLException; 
+     T recupera(String id) throws SQLException; 
         
     
      void exclui(T t) throws SQLException;

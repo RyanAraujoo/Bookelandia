@@ -35,10 +35,10 @@ public class ClienteDAO implements ICrud<Cliente> {
         
     }   
     @Override
-    public Cliente recupera(int id) throws SQLException {
-        String sql = "select cpf,nome,endereco,telefone from Clientes whre cpf = ?;";
+    public Cliente recupera(String id) throws SQLException {
+        String sql = "select cpf,nome,endereco,telefone from Clientes where cpf = ?;";
         PreparedStatement ps = conexao.getConexao().prepareStatement(sql);
-        ps.setInt(1,id);
+        ps.setString(1,id);
         ps.execute();
         ResultSet resultado = ps.getResultSet();
         conexao.fecha();

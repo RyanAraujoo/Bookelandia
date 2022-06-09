@@ -15,7 +15,7 @@ public class Conexao {
     private Connection conexao;
     
     public Connection getConexao() throws SQLException {
-        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root", "root", "terra0102");
+        Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/user=bookelandia", "root", "terra0102");
         return conexao;
     }
     public void fecha() throws SQLException {
